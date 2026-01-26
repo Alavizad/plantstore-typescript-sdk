@@ -6,7 +6,7 @@ import type * as AshleyLavizadehApi from "../../../../index.js";
  * @example
  *     {}
  */
-export interface SearchPlantsByStatusRequest {
+export interface SearchByStatusPlantRequest {
     /** The status of plants to search for. */
-    status?: AshleyLavizadehApi.SearchPlantsByStatusRequestStatus;
+    status?: AshleyLavizadehApi.SearchByStatusPlantRequestStatus;
 }

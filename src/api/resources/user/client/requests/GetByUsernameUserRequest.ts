@@ -6,7 +6,7 @@
  *         username: "username"
  *     }
  */
-export interface GetUserByNameRequest {
+export interface GetByUsernameUserRequest {
     /** Username of the user to retrieve */
     username: string;
 }

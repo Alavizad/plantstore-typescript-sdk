@@ -57,7 +57,7 @@ following namespace:
 ```typescript
 import { AshleyLavizadehApi } from "AshleyLavizadehApi";
 
-const request: AshleyLavizadehApi.SearchPlantsByStatusRequest = {
+const request: AshleyLavizadehApi.SearchByStatusPlantRequest = {
     ...
 };
 ```

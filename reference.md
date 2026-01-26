@@ -54,7 +54,7 @@ await client.plant.addPlant({
 </dl>
 </details>
 
-<details><summary><code>client.plant.<a href="/src/api/resources/plant/client/Client.ts">updatePlant</a>({ ...params }) -> AshleyLavizadehApi.PlantResponse</code></summary>
+<details><summary><code>client.plant.<a href="/src/api/resources/plant/client/Client.ts">update</a>({ ...params }) -> AshleyLavizadehApi.PlantResponse</code></summary>
 <dl>
 <dd>
 
@@ -67,7 +67,7 @@ await client.plant.addPlant({
 <dd>
 
 ```typescript
-await client.plant.updatePlant({
+await client.plant.update({
     name: "Fern",
     category: "Indoor",
     tags: ["green", "leafy"],
@@ -108,7 +108,7 @@ await client.plant.updatePlant({
 </dl>
 </details>
 
-<details><summary><code>client.plant.<a href="/src/api/resources/plant/client/Client.ts">searchPlantsByStatus</a>({ ...params }) -> AshleyLavizadehApi.PlantResponse[]</code></summary>
+<details><summary><code>client.plant.<a href="/src/api/resources/plant/client/Client.ts">searchByStatus</a>({ ...params }) -> AshleyLavizadehApi.PlantResponse[]</code></summary>
 <dl>
 <dd>
 
@@ -135,7 +135,7 @@ Filter plants based on their current status.
 <dd>
 
 ```typescript
-await client.plant.searchPlantsByStatus();
+await client.plant.searchByStatus();
 
 ```
 </dd>
@@ -151,7 +151,7 @@ await client.plant.searchPlantsByStatus();
 <dl>
 <dd>
 
-**request:** `AshleyLavizadehApi.SearchPlantsByStatusRequest` 
+**request:** `AshleyLavizadehApi.SearchByStatusPlantRequest` 
     
 </dd>
 </dl>
@@ -234,7 +234,7 @@ await client.plant.searchPlantsByTags();
 </dl>
 </details>
 
-<details><summary><code>client.plant.<a href="/src/api/resources/plant/client/Client.ts">getPlantById</a>({ ...params }) -> AshleyLavizadehApi.PlantResponse</code></summary>
+<details><summary><code>client.plant.<a href="/src/api/resources/plant/client/Client.ts">getById</a>({ ...params }) -> AshleyLavizadehApi.PlantResponse</code></summary>
 <dl>
 <dd>
 
@@ -261,7 +261,7 @@ Retrieve a plant's details by its ID.
 <dd>
 
 ```typescript
-await client.plant.getPlantById({
+await client.plant.getById({
     plantId: 1
 });
 
@@ -279,7 +279,7 @@ await client.plant.getPlantById({
 <dl>
 <dd>
 
-**request:** `AshleyLavizadehApi.GetPlantByIdRequest` 
+**request:** `AshleyLavizadehApi.GetByIdPlantRequest` 
     
 </dd>
 </dl>
@@ -300,7 +300,7 @@ await client.plant.getPlantById({
 </details>
 
 ## user
-<details><summary><code>client.user.<a href="/src/api/resources/user/client/Client.ts">loginUser</a>({ ...params }) -> AshleyLavizadehApi.UserAuthResponse</code></summary>
+<details><summary><code>client.user.<a href="/src/api/resources/user/client/Client.ts">login</a>({ ...params }) -> AshleyLavizadehApi.UserAuthResponse</code></summary>
 <dl>
 <dd>
 
@@ -313,7 +313,7 @@ await client.plant.getPlantById({
 <dd>
 
 ```typescript
-await client.user.loginUser();
+await client.user.login();
 
 ```
 </dd>
@@ -349,7 +349,7 @@ await client.user.loginUser();
 </dl>
 </details>
 
-<details><summary><code>client.user.<a href="/src/api/resources/user/client/Client.ts">logoutUser</a>() -> void</code></summary>
+<details><summary><code>client.user.<a href="/src/api/resources/user/client/Client.ts">logout</a>() -> void</code></summary>
 <dl>
 <dd>
 
@@ -362,7 +362,7 @@ await client.user.loginUser();
 <dd>
 
 ```typescript
-await client.user.logoutUser();
+await client.user.logout();
 
 ```
 </dd>
@@ -390,7 +390,7 @@ await client.user.logoutUser();
 </dl>
 </details>
 
-<details><summary><code>client.user.<a href="/src/api/resources/user/client/Client.ts">getUserByName</a>({ ...params }) -> AshleyLavizadehApi.User</code></summary>
+<details><summary><code>client.user.<a href="/src/api/resources/user/client/Client.ts">getByUsername</a>({ ...params }) -> AshleyLavizadehApi.User</code></summary>
 <dl>
 <dd>
 
@@ -417,7 +417,7 @@ Retrieve user details using their username.
 <dd>
 
 ```typescript
-await client.user.getUserByName({
+await client.user.getByUsername({
     username: "username"
 });
 
@@ -435,7 +435,7 @@ await client.user.getUserByName({
 <dl>
 <dd>
 
-**request:** `AshleyLavizadehApi.GetUserByNameRequest` 
+**request:** `AshleyLavizadehApi.GetByUsernameUserRequest` 
     
 </dd>
 </dl>

@@ -4,38 +4,38 @@ import { AshleyLavizadehApiClient } from "../../src/Client";
 import { mockServerPool } from "../mock-server/MockServerPool";
 
 describe("UserClient", () => {
-    test("loginUser", async () => {
+    test("login", async () => {
         const server = mockServerPool.createServer();
         const client = new AshleyLavizadehApiClient({ maxRetries: 0, environment: server.baseUrl });
 
         const rawResponseBody = { token: "abc123token", expiresIn: 3600 };
         server.mockEndpoint().get("/user/auth/login").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
-        const response = await client.user.loginUser();
+        const response = await client.user.login();
         expect(response).toEqual({
             token: "abc123token",
             expiresIn: 3600,
         });
     });
 
-    test("logoutUser", async () => {
+    test("logout", async () => {
         const server = mockServerPool.createServer();
         const client = new AshleyLavizadehApiClient({ maxRetries: 0, environment: server.baseUrl });
 
         server.mockEndpoint().get("/user/auth/logout").respondWith().statusCode(200).build();
 
-        const response = await client.user.logoutUser();
+        const response = await client.user.logout();
         expect(response).toEqual(undefined);
     });
 
-    test("getUserByName", async () => {
+    test("getByUsername", async () => {
         const server = mockServerPool.createServer();
         const client = new AshleyLavizadehApiClient({ maxRetries: 0, environment: server.baseUrl });
 
         const rawResponseBody = { id: 1, username: "john_doe", email: "john@example.com" };
         server.mockEndpoint().get("/user/username").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
-        const response = await client.user.getUserByName({
+        const response = await client.user.getByUsername({
             username: "username",
         });
         expect(response).toEqual({

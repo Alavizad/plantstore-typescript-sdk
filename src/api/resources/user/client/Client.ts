@@ -30,16 +30,16 @@ export class UserClient {
      * @param {UserClient.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.user.loginUser()
+     *     await client.user.login()
      */
-    public loginUser(
+    public login(
         request: AshleyLavizadehApi.LoginUserRequest = {},
         requestOptions?: UserClient.RequestOptions,
     ): core.HttpResponsePromise<AshleyLavizadehApi.UserAuthResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__loginUser(request, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__login(request, requestOptions));
     }
 
-    private async __loginUser(
+    private async __login(
         request: AshleyLavizadehApi.LoginUserRequest = {},
         requestOptions?: UserClient.RequestOptions,
     ): Promise<core.WithRawResponse<AshleyLavizadehApi.UserAuthResponse>> {
@@ -84,13 +84,13 @@ export class UserClient {
      * @param {UserClient.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.user.logoutUser()
+     *     await client.user.logout()
      */
-    public logoutUser(requestOptions?: UserClient.RequestOptions): core.HttpResponsePromise<void> {
-        return core.HttpResponsePromise.fromPromise(this.__logoutUser(requestOptions));
+    public logout(requestOptions?: UserClient.RequestOptions): core.HttpResponsePromise<void> {
+        return core.HttpResponsePromise.fromPromise(this.__logout(requestOptions));
     }
 
-    private async __logoutUser(requestOptions?: UserClient.RequestOptions): Promise<core.WithRawResponse<void>> {
+    private async __logout(requestOptions?: UserClient.RequestOptions): Promise<core.WithRawResponse<void>> {
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(this._options?.headers, requestOptions?.headers);
         const _response = await core.fetcher({
             url: core.url.join(
@@ -126,23 +126,23 @@ export class UserClient {
     /**
      * Retrieve user details using their username.
      *
-     * @param {AshleyLavizadehApi.GetUserByNameRequest} request
+     * @param {AshleyLavizadehApi.GetByUsernameUserRequest} request
      * @param {UserClient.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.user.getUserByName({
+     *     await client.user.getByUsername({
      *         username: "username"
      *     })
      */
-    public getUserByName(
-        request: AshleyLavizadehApi.GetUserByNameRequest,
+    public getByUsername(
+        request: AshleyLavizadehApi.GetByUsernameUserRequest,
         requestOptions?: UserClient.RequestOptions,
     ): core.HttpResponsePromise<AshleyLavizadehApi.User> {
-        return core.HttpResponsePromise.fromPromise(this.__getUserByName(request, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getByUsername(request, requestOptions));
     }
 
-    private async __getUserByName(
-        request: AshleyLavizadehApi.GetUserByNameRequest,
+    private async __getByUsername(
+        request: AshleyLavizadehApi.GetByUsernameUserRequest,
         requestOptions?: UserClient.RequestOptions,
     ): Promise<core.WithRawResponse<AshleyLavizadehApi.User>> {
         const { username } = request;

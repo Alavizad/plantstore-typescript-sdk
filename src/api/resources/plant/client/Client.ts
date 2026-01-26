@@ -101,21 +101,21 @@ export class PlantClient {
      * @throws {@link AshleyLavizadehApi.NotFoundError}
      *
      * @example
-     *     await client.plant.updatePlant({
+     *     await client.plant.update({
      *         name: "Fern",
      *         category: "Indoor",
      *         tags: ["green", "leafy"],
      *         status: "sold"
      *     })
      */
-    public updatePlant(
+    public update(
         request: AshleyLavizadehApi.Plant,
         requestOptions?: PlantClient.RequestOptions,
     ): core.HttpResponsePromise<AshleyLavizadehApi.PlantResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__updatePlant(request, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__update(request, requestOptions));
     }
 
-    private async __updatePlant(
+    private async __update(
         request: AshleyLavizadehApi.Plant,
         requestOptions?: PlantClient.RequestOptions,
     ): Promise<core.WithRawResponse<AshleyLavizadehApi.PlantResponse>> {
@@ -167,21 +167,21 @@ export class PlantClient {
     /**
      * Filter plants based on their current status.
      *
-     * @param {AshleyLavizadehApi.SearchPlantsByStatusRequest} request
+     * @param {AshleyLavizadehApi.SearchByStatusPlantRequest} request
      * @param {PlantClient.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.plant.searchPlantsByStatus()
+     *     await client.plant.searchByStatus()
      */
-    public searchPlantsByStatus(
-        request: AshleyLavizadehApi.SearchPlantsByStatusRequest = {},
+    public searchByStatus(
+        request: AshleyLavizadehApi.SearchByStatusPlantRequest = {},
         requestOptions?: PlantClient.RequestOptions,
     ): core.HttpResponsePromise<AshleyLavizadehApi.PlantResponse[]> {
-        return core.HttpResponsePromise.fromPromise(this.__searchPlantsByStatus(request, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__searchByStatus(request, requestOptions));
     }
 
-    private async __searchPlantsByStatus(
-        request: AshleyLavizadehApi.SearchPlantsByStatusRequest = {},
+    private async __searchByStatus(
+        request: AshleyLavizadehApi.SearchByStatusPlantRequest = {},
         requestOptions?: PlantClient.RequestOptions,
     ): Promise<core.WithRawResponse<AshleyLavizadehApi.PlantResponse[]>> {
         const { status } = request;
@@ -279,23 +279,23 @@ export class PlantClient {
     /**
      * Retrieve a plant's details by its ID.
      *
-     * @param {AshleyLavizadehApi.GetPlantByIdRequest} request
+     * @param {AshleyLavizadehApi.GetByIdPlantRequest} request
      * @param {PlantClient.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @example
-     *     await client.plant.getPlantById({
+     *     await client.plant.getById({
      *         plantId: 1
      *     })
      */
-    public getPlantById(
-        request: AshleyLavizadehApi.GetPlantByIdRequest,
+    public getById(
+        request: AshleyLavizadehApi.GetByIdPlantRequest,
         requestOptions?: PlantClient.RequestOptions,
     ): core.HttpResponsePromise<AshleyLavizadehApi.PlantResponse> {
-        return core.HttpResponsePromise.fromPromise(this.__getPlantById(request, requestOptions));
+        return core.HttpResponsePromise.fromPromise(this.__getById(request, requestOptions));
     }
 
-    private async __getPlantById(
-        request: AshleyLavizadehApi.GetPlantByIdRequest,
+    private async __getById(
+        request: AshleyLavizadehApi.GetByIdPlantRequest,
         requestOptions?: PlantClient.RequestOptions,
     ): Promise<core.WithRawResponse<AshleyLavizadehApi.PlantResponse>> {
         const { plantId } = request;

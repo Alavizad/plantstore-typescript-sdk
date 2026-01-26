@@ -52,7 +52,7 @@ describe("PlantClient", () => {
         }).rejects.toThrow(AshleyLavizadehApi.MethodNotAllowedError);
     });
 
-    test("updatePlant (1)", async () => {
+    test("update (1)", async () => {
         const server = mockServerPool.createServer();
         const client = new AshleyLavizadehApiClient({ maxRetries: 0, environment: server.baseUrl });
         const rawRequestBody = { name: "Fern", category: "Indoor", tags: ["green", "leafy"], status: "sold" };
@@ -66,7 +66,7 @@ describe("PlantClient", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.plant.updatePlant({
+        const response = await client.plant.update({
             name: "Fern",
             category: "Indoor",
             tags: ["green", "leafy"],
@@ -80,7 +80,7 @@ describe("PlantClient", () => {
         });
     });
 
-    test("updatePlant (2)", async () => {
+    test("update (2)", async () => {
         const server = mockServerPool.createServer();
         const client = new AshleyLavizadehApiClient({ maxRetries: 0, environment: server.baseUrl });
         const rawRequestBody = {};
@@ -95,11 +95,11 @@ describe("PlantClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.plant.updatePlant({});
+            return await client.plant.update({});
         }).rejects.toThrow(AshleyLavizadehApi.BadRequestError);
     });
 
-    test("updatePlant (3)", async () => {
+    test("update (3)", async () => {
         const server = mockServerPool.createServer();
         const client = new AshleyLavizadehApiClient({ maxRetries: 0, environment: server.baseUrl });
         const rawRequestBody = {};
@@ -114,11 +114,11 @@ describe("PlantClient", () => {
             .build();
 
         await expect(async () => {
-            return await client.plant.updatePlant({});
+            return await client.plant.update({});
         }).rejects.toThrow(AshleyLavizadehApi.NotFoundError);
     });
 
-    test("searchPlantsByStatus", async () => {
+    test("searchByStatus", async () => {
         const server = mockServerPool.createServer();
         const client = new AshleyLavizadehApiClient({ maxRetries: 0, environment: server.baseUrl });
 
@@ -134,7 +134,7 @@ describe("PlantClient", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.plant.searchPlantsByStatus();
+        const response = await client.plant.searchByStatus();
         expect(response).toEqual([
             {
                 id: 101,
@@ -178,14 +178,14 @@ describe("PlantClient", () => {
         ]);
     });
 
-    test("getPlantById", async () => {
+    test("getById", async () => {
         const server = mockServerPool.createServer();
         const client = new AshleyLavizadehApiClient({ maxRetries: 0, environment: server.baseUrl });
 
         const rawResponseBody = { id: 101, name: "Fern", status: "available", tags: ["green", "leafy"] };
         server.mockEndpoint().get("/plant/1").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
-        const response = await client.plant.getPlantById({
+        const response = await client.plant.getById({
             plantId: 1,
         });
         expect(response).toEqual({
